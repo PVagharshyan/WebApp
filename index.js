@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const expressSession = require('cookie-session')
+const expressSession = require('express-session')
 
 const port = process.env.PORT || 4000
 
@@ -39,13 +39,7 @@ app.use("*", (req, res, next) => {
     next()
 });
 
-try {
-    mongoose.connect('mongodb+srv://paylakvagharshyan:fmf7asWRywJnDjGw@webapp.pz2torz.mongodb.net/'); 
-    console.log('success connection');
-}
-catch (error) {
-    console.log('Error connection: ' + error);
-}
+mongoose.connect("mongodb+srv://paylakvagharshyan:fmf7asWRywJnDjGw@webapp.pz2torz.mongodb.net/")
 
 app.get('/', homeController)
 app.get('/about', (req, res) => {
