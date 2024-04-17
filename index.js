@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const expressSession = require('express-session')
+const expressSession = require('cookie-session')
 
 const port = process.env.PORT || 4000
 
