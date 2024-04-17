@@ -39,7 +39,13 @@ app.use("*", (req, res, next) => {
     next()
 });
 
-mongoose.connect('mongodb+srv://paylakvagharshyan:fmf7asWRywJnDjGw@webapp.pz2torz.mongodb.net/');
+try {
+    mongoose.connect('mongodb+srv://paylakvagharshyan:fmf7asWRywJnDjGw@webapp.pz2torz.mongodb.net/'); 
+    console.log('success connection');
+}
+catch (error) {
+    console.log('Error connection: ' + error);
+}
 
 app.get('/', homeController)
 app.get('/about', (req, res) => {
