@@ -39,7 +39,7 @@ app.use("*", (req, res, next) => {
     next()
 });
 
-mongoose.connect("mongodb+srv://paylakvagharshyan:fmf7asWRywJnDjGw@webapp.pz2torz.mongodb.net/")
+mongoose.connect('mongodb+srv://paylakvagharshyan:fmf7asWRywJnDjGw@webapp.pz2torz.mongodb.net/my_database', {useNewUrlParser: true})
 
 app.get('/', homeController)
 app.get('/about', (req, res) => {
