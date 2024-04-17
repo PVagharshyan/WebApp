@@ -39,7 +39,11 @@ app.use("*", (req, res, next) => {
     next()
 });
 
-mongoose.connect('mongodb+srv://paylakvagharshyan:fmf7asWRywJnDjGw@webapp.pz2torz.mongodb.net/my_database', {useNewUrlParser: true})
+mongoose.connect('mongodb+srv://paylakvagharshyan:fmf7asWRywJnDjGw@webapp.pz2torz.mongodb.net/my_database', {
+  useNewUrlParser: true,
+  serverSelectionTimeoutMS: 30000, // 30 seconds timeout
+  socketTimeoutMS: 45000 // 45 seconds socket timeout
+});
 
 app.get('/', homeController)
 app.get('/about', (req, res) => {
