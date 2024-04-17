@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const expressSession = require('express-session')
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 4000
 
 const newPostController = require('./controllers/newPost')
 const homeController = require('./controllers/home')
