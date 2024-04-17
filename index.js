@@ -3,6 +3,8 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const expressSession = require('express-session')
 
+const port = process.env.PORT || 5000
+
 const newPostController = require('./controllers/newPost')
 const homeController = require('./controllers/home')
 const storePostController = require('./controllers/storePost')
@@ -58,6 +60,6 @@ app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController)
 
 app.use((req, res) => res.render('notfound'))
 
-app.listen(3000, () => {
-    console.log("app listen port 3000")
+app.listen(port, () => {
+    console.log(`app listen port ${port}`)
 })
