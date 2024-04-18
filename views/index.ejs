@@ -35,10 +35,20 @@
                     </div>
                     <% console.log(global.loggedIn, "\n", blogposts[i].userid) %>
                     <% if (global.loggedIn == blogposts[i].userid._id) { %>
-                        <form action="/removePost" method="POST">
-                            <input type="hidden" name="postId" value="<%= blogposts[i]._id %>">
-                            <button type="submit" class="btn btn-danger">Remove</button>
-                        </form>
+                        <!-- Buttons Container -->
+                        <div class="row">
+                            <!-- Update Button -->
+                            <div class="col-auto">
+                                <a href="/update/<%= blogposts[i]._id %>" class="btn btn-primary">Update</a>
+                            </div>
+                            <!-- Remove Button -->
+                            <div class="col-auto">
+                                <form action="/removePost" method="POST">
+                                    <input type="hidden" name="postId" value="<%= blogposts[i]._id %>">
+                                    <button type="submit" class="btn btn-danger">Remove</button>
+                                </form>
+                            </div>
+                        </div>
                     <% } %>
                     <% } %>
                     <hr class="my-4" />

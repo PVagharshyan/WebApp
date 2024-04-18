@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layout/header'); -%>
+
+    <body>
+        <!-- Navigation-->
+        <%- include('layout/navbar'); -%>
+            <!-- Page Header-->
+            <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+                <div class="container position-relative px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-md-10 col-lg-8 col-xl-7">
+                            <div class="page-heading">
+                                <h1>Update Post</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Main Content-->
+            <main class="mb-4">
+                <div class="container px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-md-10 col-lg-8 col-xl-7">
+                            <div class="my-5">
+                                <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="/updatePost/<%= locals.pid %>" method="POST" enctype="multipart/form-data">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" placeholder="Title" id="title"
+                                            name="title">
+                                        <label for="name">Title</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="message"
+                                            placeholder="Enter your message here..." style="height: 12rem"
+                                            data-sb-validations="required" name="body"></textarea>
+                                        <label for="message">Body</label>
+                                    </div>
+                                    <br />
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls">
+                                            <label>Image</label>
+                                            <input type="file" class="form-control" id="image" name="image">
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls">
+                                            <label for="validation">Validation</label>
+                                            <input type="checkbox" class="form-check-input" id="validation" name="validation">
+                                            <label class="form-check-label" for="validation">By not specifying this, you block other users from seeing your posts</label>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- Footer-->
+            <%- include('layout/footer'); -%>
+            <%- include('layout/scripts'); -%>
+            <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+
+</html>
