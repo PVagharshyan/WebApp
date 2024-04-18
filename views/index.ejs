@@ -29,7 +29,6 @@
                             <h3 class="post-subtitle"><%= blogposts[i].body %></h3>
                         </a>
                         <p class="post-meta">
-                            Posted by <% console.log(blogposts[i]) %>
                             <a href="/post/<%= blogposts[i]._id%>"><%= blogposts[i].userid.username %></a>
                             on <%= blogposts[i].datePosted.toDateString() %>
                         </p>

@@ -12,8 +12,8 @@
                         <div class="post-heading">
                             <h1><%= blogpost.title %></h1>
                             <span class="meta">
-                                Posted by
-                                <a href="#!"><%= blogpost.username %></a>
+                                Posted by <% console.log(blogpost.userid.username) %>
+                                <a href="#!"><%= blogpost.userid.username %></a>
                                 on <%= blogpost.datePosted.toDateString() %>
                             </span>
                         </div>

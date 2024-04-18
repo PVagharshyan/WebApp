@@ -4,6 +4,7 @@ module.exports = (req, res) => {
     console.log(req.params)
     BlogPost
         .findById(req.params.id)
+        .populate('userid')
         .then(blogpost => {
             res.render('post', {
                 blogpost
