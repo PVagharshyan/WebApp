@@ -1,0 +1,119 @@
+openapi: 
+info:
+  title: API Documentation
+paths:
+  /:
+    get:
+      summary: Retrieve home page
+      description: Returns the home page where all existing posts are printed. Access is allowed whether the user is logged in or not.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/html:
+              schema:
+                type: string
+  /about:
+    get:
+      summary: Retrieve about page
+      description: Returns information about the site. Access is allowed whether the user is logged in or not.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/html:
+              schema:
+                type: string
+  /auth/register:
+    get:
+      summary: Retrieve new user registration page
+      description: Returns the sign-up page where users can register for a new account. Access is only allowed if the user is not logged in.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/html:
+              schema:
+                type: string
+  /auth/login:
+    get:
+      summary: Retrieve login page
+      description: Returns the login page where users can log in to their accounts. Access is only allowed if the user is not logged in.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/html:
+              schema:
+                type: string
+  /contact:
+    get:
+      summary: Retrieve contact page
+      description: Returns the contact page. Access is allowed whether the user is logged in or not.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/html:
+              schema:
+                type: string
+  /post/{id}:
+    get:
+      summary: Retrieve a post by ID
+      description: Returns a specific post by its ID. Access is allowed whether the user is logged in or not.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+  /posts/new:
+    get:
+      summary: Retrieve new post form
+      description: Returns the form for creating a new post. Access is only allowed if the user is logged in.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/html:
+              schema:
+                type: string
+    post:
+      summary: Create a new post
+      description: Creates a new post. Access is only allowed if the user is logged in.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                content:
+                  type: string
+      responses:
+        '201':
+          description: Post created successfully
+          content:
+            text/html:
+              schema:
+                type: string
+components:
+  schemas:
+    Post:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        content:
+          type: string
