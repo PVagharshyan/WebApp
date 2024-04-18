@@ -3,10 +3,10 @@ const BlogPost = require('../models/BlogPost.js')
 module.exports = (req, res) => {
     console.log(req.session)
     BlogPost
-        .find({validated : true})
+        .find({userid : req.session.userId})
         .populate('userid')
         .then(blogposts => {
-            res.render('index', {
+            res.render('myPosts', {
                 blogposts
             })
         })

@@ -13,7 +13,11 @@ const BlogPostSchema = new Schema({
         type: Date,
         default: new Date()
     },
-    image: String
+    image: String, 
+    validated: {
+        type: Boolean,
+        default: false
+    }
 })
 
 const BlogPost = mongoose.model('BlogPost', BlogPostSchema);

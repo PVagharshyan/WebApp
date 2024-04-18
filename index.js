@@ -14,6 +14,7 @@ const storeUserController = require('./controllers/storUser');
 const loginController = require('./controllers/login');
 const loginUserController = require('./controllers/loginUser');
 const logoutController = require('./controllers/logout');
+const myPostsController = require('./controllers/myPosts')
 
 const app = express();
 const ejs = require('ejs');
@@ -58,6 +59,7 @@ app.get('/contact', (req, res) => {
 });
 app.get('/post/:id', getPostController);
 app.get('/posts/new', authMiddleware, newPostController);
+app.get('/auth/myPosts', authMiddleware, myPostsController);
 app.get('/auth/register', redirectIfAuthenticatedMiddleware, newUserController);
 app.get('/auth/login', redirectIfAuthenticatedMiddleware, loginController);
 app.get('/auth/logout', logoutController);
