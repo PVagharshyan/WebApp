@@ -15,6 +15,7 @@ const loginController = require('./controllers/login');
 const loginUserController = require('./controllers/loginUser');
 const logoutController = require('./controllers/logout');
 const myPostsController = require('./controllers/myPosts')
+const deleteController = require('./controllers/removePost')
 
 const app = express();
 const ejs = require('ejs');
@@ -65,6 +66,7 @@ app.get('/auth/login', redirectIfAuthenticatedMiddleware, loginController);
 app.get('/auth/logout', logoutController);
 
 app.post('/posts/store', authMiddleware, storePostController);
+app.post('/removePost', authMiddleware, deleteController);
 app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
 app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController);
 

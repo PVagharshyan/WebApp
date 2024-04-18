@@ -33,6 +33,12 @@
                             <a href="/post/<%= blogposts[i]._id%>"><%= blogposts[i].userid.username %></a>
                             on <%= blogposts[i].datePosted.toDateString() %>
                         </p>
+                        <% if (global.loggedIn == blogposts[i].userid._id) { %>
+                            <form action="/remove-post" method="POST">
+                                <input type="hidden" name="postId" value="<%= blogposts[i]._id %>">
+                                <button type="submit" class="btn btn-danger">Remove</button>
+                            </form>
+                        <% } %>
                     </div>
                     <% } %>
                     <hr class="my-4" />
