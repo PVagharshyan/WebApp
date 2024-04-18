@@ -4,6 +4,7 @@ module.exports = (req, res) => {
     console.log(req.session)
     BlogPost
         .find({})
+        .populate('userid')
         .then(blogposts => {
             res.render('index', {
                 blogposts
